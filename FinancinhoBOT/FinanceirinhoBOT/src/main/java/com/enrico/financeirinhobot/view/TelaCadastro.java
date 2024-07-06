@@ -67,8 +67,8 @@ public class TelaCadastro extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         BaixarBUTTON = new javax.swing.JButton();
         LancarBUTTON = new javax.swing.JButton();
-        AdicionarBUTTON = new javax.swing.JToggleButton();
         MensagemACTION = new javax.swing.JLabel();
+        AdicionarBUTTON = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         CeludaPRINT = new javax.swing.JLabel();
@@ -345,6 +345,8 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         LancarBUTTON.setText("Lançar");
 
+        MensagemACTION.setText(" ");
+
         AdicionarBUTTON.setText("Adicionar");
         AdicionarBUTTON.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,16 +354,14 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
 
-        MensagemACTION.setText(" ");
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(AdicionarBUTTON)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
+                .addComponent(AdicionarBUTTON, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LancarBUTTON)
                 .addGap(18, 18, 18)
                 .addComponent(MensagemACTION, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -376,8 +376,8 @@ public class TelaCadastro extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BaixarBUTTON)
                     .addComponent(LancarBUTTON)
-                    .addComponent(AdicionarBUTTON)
-                    .addComponent(MensagemACTION))
+                    .addComponent(MensagemACTION)
+                    .addComponent(AdicionarBUTTON))
                 .addContainerGap())
         );
 
@@ -513,9 +513,8 @@ public class TelaCadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AdicionarBUTTONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarBUTTONActionPerformed
-        LinkedList<Movimentacao> movimentacaoPackage = new LinkedList<>();        
         Movimentacao movi = new Movimentacao();
-       DefaultListModel model = new DefaultListModel();
+       
 
         
         String movimentacao = MovimentacaoFORM.getText();
@@ -540,7 +539,11 @@ public class TelaCadastro extends javax.swing.JFrame {
            case 2: movi.setEscolha("DÉBITO");
            case 3: movi.setEscolha("COFRINHO");
        }
-            
+       
+       String msg ="";
+       msg+= movi.getMovimentacao() +" ("+movi.getBanco()+"/"+movi.getEscolha()+"): "+"R$"+movi.getValor();
+       
+       
       
     }//GEN-LAST:event_AdicionarBUTTONActionPerformed
 
@@ -580,7 +583,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton AdicionarBUTTON;
+    private javax.swing.JButton AdicionarBUTTON;
     private javax.swing.JButton BaixarBUTTON;
     private javax.swing.JComboBox<String> BancoSELECT;
     private javax.swing.JLabel CeludaPRINT;
